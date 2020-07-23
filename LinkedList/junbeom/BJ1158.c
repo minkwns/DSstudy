@@ -10,24 +10,23 @@ typedef struct Node{
 node *head = NULL;
 
 
-void initNode(int value){
+void initNode(int value){ // initialize and add
     node *newNode = (node*)malloc(sizeof(node));
     node *ptr = head;
     newNode->data = value;
 
-    if(head == NULL){ // 아무것도 없을
+    if(head == NULL){ // 아무것도 없을 때
         head = newNode;
         newNode->next = newNode;
-
     }
     else{
-        while(ptr->next != NULL && ptr->next != head){ ptr = ptr->next; }
+        while(ptr->next != NULL && ptr->next != head){ ptr = ptr->next; } // 계속 앞으로 진행
         ptr->next = newNode;
         newNode->next = head;
     }
 }
 
-void deleteNode(node *ptr){
+void delAndDisplay(node *ptr){
     printf("%d", ptr->data);
     node *cur = head;
 
@@ -36,7 +35,7 @@ void deleteNode(node *ptr){
         return;
     }
     while(cur->next->data != ptr->data) cur = cur->next;
-    if(head->data == ptr->data) head = ptr->next;
+    if(head->data == ptr->data) head = head->next;
     cur->next = ptr->next;
     free(ptr);
 }
@@ -48,27 +47,28 @@ int main(){
     for(int i = 1; i <= n; i++){
         initNode(i);
     }
-    int check = 0;
-    int once = 1;
-    node* run = head;
+    int idx = 0; // index
+    int bin = 1; // 0, 1
+    node* cur = head;
     printf("<");
     while (head != NULL) {
-        check++;
-        if (check%k == 0 && check != 0) {
-            if (once != 1) {
+        idx++;
+        if (idx%k == 0 && idx != 0) {
+            if (bin != 1) {
                 printf(", ");
             }
-            else once = 0;
+            else bin = 0;
 
-            node* ptr = run;
-            run = run->next;
-            deleteNode(ptr);
+            node* ptr = cur;
+            cur = cur->next;
+            delAndDisplay(ptr); // delete and display node ptr
         }
         else {
-            run = run->next;
+            cur = cur->next;
         }
     }
     printf(">");
 
     return 0;
 }
+
