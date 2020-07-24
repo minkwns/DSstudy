@@ -3,7 +3,8 @@
 #include "dbdlinkedlist.c"
 
 int main()
-{
+   {
+
     List list;
     int data;
     ListInit(&list);
@@ -50,7 +51,7 @@ int main()
 
         while(LNext(&list, &data))
         printf("%d ", data);
-
         puts("");
     }
 }
+
