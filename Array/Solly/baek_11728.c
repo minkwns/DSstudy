@@ -69,18 +69,5 @@ int main()
         }
     }
 
-    /*while(b_ind != m) {
-        for(i = 0; i < (b_ind-1); i++) {
-            if(b[i] > b[i+1]) {
-                // 위치 변경
-                temp = b[i];
-                b[i] = b[i+1];
-                b[i+1] = temp;
-            }
-        }
-        printf("%ld ", b[b_ind]);
-        b_ind++;
-    }*/
-
     printf("\n");
 }
