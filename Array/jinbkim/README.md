@@ -3,6 +3,8 @@
 ### 제가 구현한걸 이해하시고 아래 내용을 간단하게 생각해주시면 좋을껏같습니다.  
 
 
+
+
 #### 1) void	memcpy(void *des, const void *src, size_t len) 라는 함수가 어떤역할을 하는지 간단하게 설명해주세요. 
 - https://modoocode.com/77
 #### 2.1) size_t, unsigned int, int 의 차이점을 간단하게 설명해주세요.
