@@ -108,27 +108,7 @@ pq_data	delete_p_queue(t_p_queue *pq)
 	pq->pq_arr[parent_i] = last_elem;
 	return (remem_data);
 }
-HData HDelete(Heap * ph)
-{
-	HData retData = ph->heapArr[1];
-	HData lastElem = ph->heapArr[ph->numOfData];
 
-	int parentIdx = 1;
-	int childIdx;
-
-	while(childIdx = GetHiPriChildIDX(ph, parentIdx))
-	{
-	//	if(lastElem.pr <= ph->heapArr[childIdx].pr)
-		if(ph->comp(lastElem, ph->heapArr[childIdx]) >= 0)
-			break;
-
-		ph->heapArr[parentIdx] = ph->heapArr[childIdx];
-		parentIdx = childIdx;
-	}
-
-	ph->heapArr[parentIdx] = lastElem;
-	ph->numOfData -= 1;
-	return retData;
 }
 
 

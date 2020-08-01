@@ -91,15 +91,13 @@ pq_data	delete_p_queue(t_p_queue *pq)
 	parent_i = 1;
 	while ((child_i = get_high_priority_child_i(pq, parent_i)))
 	{
-		if (pq->f(last_data, pq->pq_arr[child_i]) >= 0)
+		if (pq->f(last_data, pq->pq_arr[child_i]) < 0)
 			break ;
 		pq->pq_arr[parent_i] = pq->pq_arr[child_i];
 		parent_i = child_i;
 	}
-	
 	pq->pq_arr[parent_i] = last_data;
 	return (remem_data);
-
 }
 
 
@@ -110,11 +108,11 @@ int		main(void)
 
 	p_queue_init(&pq, comp_func);
 
-	enter_p_queue(&pq, "ab");
-	enter_p_queue(&pq, "jk");
-	enter_p_queue(&pq, "cd");
-	enter_p_queue(&pq, "gh");
-	enter_p_queue(&pq, "ef");
+	enter_p_queue(&pq, "one");
+	enter_p_queue(&pq, "two");
+	enter_p_queue(&pq, "three");
+	enter_p_queue(&pq, "four");
+	enter_p_queue(&pq, "five");
 
 	while (!p_queue_is_empty(&pq))
 		printf("%s \n", delete_p_queue(&pq));
