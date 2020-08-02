@@ -76,7 +76,6 @@ int		get_high_priority_child_i(t_p_queue *pq, int i)
 			else
 				return (i * 2 + 1);
 		}
-		
 }
 
 pq_data	delete_p_queue(t_p_queue *pq)
